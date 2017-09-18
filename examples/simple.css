@@ -1,0 +1,65 @@
+.rc-week-schedule-table {
+  display: table;
+  width: 100%;
+}
+.rc-week-schedule-table {
+  page-break-after: always;
+  table-layout: fixed;
+}
+table.rc-week-schedule-table,
+.rc-week-schedule-table td {
+  border: 1px solid #ebebeb !important;
+}
+.rc-week-schedule-table td {
+  width: auto;
+  vertical-align: middle;
+}
+.rc-week-schedule-table td {
+  padding: 0!important;
+}
+.rc-week-schedule-time-detail {
+  box-sizing: border-box;
+  border-bottom: 1px solid #ebebeb;
+}
+.rc-week-schedule-direction-rotate .rc-week-schedule-time-detail {
+  border: 0;
+  height: 90px;
+  max-height: 90px;
+  overflow: visible;
+}
+.rc-week-schedule-time-detail-full {
+  background-color: #ffffff;
+}
+.rc-week-schedule-cell-column {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.rc-week-schedule-bg-cell-column {
+  background-color: rgba(233, 233, 233, 0.5);
+}
+.rc-week-schedule-bg-cell-column .rc-week-schedule-time-detail {
+  border-bottom: 1px solid #ebebeb;
+}
+.rc-week-schedule-time-detail.last {
+  border-bottom: 0!important;
+}
+.rc-week-schedule-cell-td {
+  padding: 0px!important;
+  margin: 0px!important;
+  vertical-align: top;
+  position: relative;
+}
+@media print {
+  .rc-week-schedule-bg-cell-column {
+    display: none;
+  }
+}
+.print-window-body .rc-week-schedule-bg-cell-column {
+  display: none;
+}
+
+/*# sourceMappingURL=simple.css.map*/
