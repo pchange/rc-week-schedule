@@ -69,10 +69,17 @@ Online examples: [http://pchange.github.io/rc-week-schedule/examples/](http://pc
     </thead>
     <tbody>
         <tr>
-          <td>value</td>
+          <td>events</td>
           <td>array</td>
           <td>[]</td>
-          <td>components value, if should be as array with elem object link `{row: 0,  column: 5, render: ({ record, row, column }) => {console.log('record', record, 'row', row, 'column', column); return (<div>value</div>); } }`</td>
+          <td>components events, if should be as array with elem object link `{start_time: 1499684400, end_time: 1499688000, render: (cell, record) => {return (<span>{record.start_time}</span>); },
+        },`</td>
+        </tr>
+        <tr>
+          <td>value</td>
+          <td>moment</td>
+          <td>momnet()</td>
+          <td>components value</td>
         </tr>
         <tr>
           <td>onChange</td>
@@ -81,76 +88,56 @@ Online examples: [http://pchange.github.io/rc-week-schedule/examples/](http://pc
           <td>callback when value changed initiative</td>
         </tr>
         <tr>
-          <td>selectionCell</td>
-          <td>array</td>
-          <td>''</td>
-          <td>components selectionCell value, if should be as array with elem object link `{row: 0,  column: 5}`</td>
-        </tr>
-        <tr>
-          <td>onSelectionCellChange</td>
-          <td>Function</td>
-          <td></td>
-          <td>callback when selectionCell changed initiative</td>
-        </tr>
-        <tr>
           <td>className</td>
           <td>string</td>
           <td>''</td>
           <td>additional className at container</td>
         </tr>
         <tr>
-          <td>rows</td>
-          <td>array</td>
-          <td>[{label: 1, index: 1, }, {label: 2, index: 2, }, ],</td>
-          <td>row define</td>
-        </tr>
-        <tr>
-          <td>columns</td>
-          <td>array</td>
-          <td>[{label: 1, index: 1, }, {label: 2, index: 2, }, ],</td>
-          <td>column define</td>
-        </tr>
-        <tr>
-          <td>ySelect</td>
-          <td>boolen</td>
-          <td>true</td>
-          <td>select cell when mouse draging y coordinate</td>
-        </tr>
-        <tr>
-          <td>xSelect</td>
-          <td>boolen</td>
-          <td>true</td>
-          <td>select cell when mouse draging x coordinate</td>
-        </tr>
-        <tr>
           <td>rowHeight</td>
           <td>number</td>
-          <td>30</td>
+          <td>60</td>
           <td>change row Height whth this props</td>
         </tr>
         <tr>
-          <td>cellWidth</td>
+          <td>colSpan</td>
           <td>number</td>
-          <td>50</td>
-          <td>change cell Width whth this props</td>
+          <td>30</td>
+          <td>event cell colSpan when rotate</td>
         </tr>
         <tr>
-          <td>labelCellWidth</td>
-          <td>number</td>
-          <td>50</td>
-          <td>change label Cell Width whth this props</td>
-        </tr>
-        <tr>
-          <td>selectedAppend</td>
-          <td>boolen</td>
-          <td>false</td>
-          <td>if true, append selectionCell cell when click or drag. if false, recount selectionCell and abandon the old selection</td>
-        </tr>
-        <tr>
-          <td>cellSelectClassName</td>
+          <td>prefixCls</td>
           <td>string</td>
-          <td>''</td>
-          <td>add className to selection Cell</td>
+          <td>rc-week-schedule</td>
+          <td>compoments prefixCls class</td>
+        </tr>
+        <tr>
+          <td>direction</td>
+          <td>string</td>
+          <td>normal</td>
+          <td>'rotate' or 'normal'</td>
+        </tr>
+        <tr>
+          <td>showLine</td>
+          <td>boolen</td>
+          <td>true</td>
+          <td>compoments table line segmentation</td>
+        </tr>
+        <tr>
+          <td>header</td>
+          <td>function</td>
+          <td>`(value) => {
+      return (<h3>{value.format('YYYY-MM-DD')}</h3>);
+    }`</td>
+          <td>compoments header render func</td>
+        </tr>
+        <tr>
+          <td>dayLabelFormat</td>
+          <td>function</td>
+          <td>`(day) => {
+      return <div>{day.format('ddd')}<br />{day.format('MM-DD')}</div>;
+    }`</td>
+          <td>compoments dayLabelFormat render func</td>
         </tr>
     </tbody>
 </table>
