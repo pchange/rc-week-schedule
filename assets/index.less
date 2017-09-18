@@ -1,0 +1,78 @@
+@week-schedule-prefix-cls: rc-week-schedule;
+
+//
+// week-schedule
+// --------------------------------------------------
+@font-size-base         : 14px;
+@line-height-base       : 1.5;
+
+//** week-schedule text color
+@week-schedule-border-color: #ebebeb;
+@week-schedule-time-detail-full-bgcolor: #ffffff;
+@week-schedule-bg-cell-column-bgcolor: rgba(233, 233, 233, 0.5);
+@week-schedule-rotate-time-detail-height: 90px;
+
+
+.@{week-schedule-prefix-cls}-table {
+  display: table;
+  width: 100%;
+}
+.@{week-schedule-prefix-cls}-table {
+  page-break-after: always;
+  table-layout: fixed;
+}
+table.@{week-schedule-prefix-cls}-table, .@{week-schedule-prefix-cls}-table td {
+  border: 1px solid @week-schedule-border-color!important;
+}
+.@{week-schedule-prefix-cls}-table td {
+  width: auto;
+  vertical-align: middle;
+}
+.@{week-schedule-prefix-cls}-table td{
+  padding: 0!important;
+}
+.@{week-schedule-prefix-cls}-time-detail {
+  box-sizing: border-box;
+  border-bottom: 1px solid @week-schedule-border-color;
+}
+.@{week-schedule-prefix-cls}-direction-rotate .@{week-schedule-prefix-cls}-time-detail {
+  border: 0;
+  height: @week-schedule-rotate-time-detail-height;
+  max-height: @week-schedule-rotate-time-detail-height;
+  overflow: visible;
+}
+.@{week-schedule-prefix-cls}-time-detail-full {
+  background-color: @week-schedule-time-detail-full-bgcolor;
+}
+.@{week-schedule-prefix-cls}-time-detail-empty {}
+.@{week-schedule-prefix-cls}-cell-column {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.@{week-schedule-prefix-cls}-bg-cell-column {
+  background-color: @week-schedule-bg-cell-column-bgcolor;
+}
+.@{week-schedule-prefix-cls}-bg-cell-column .@{week-schedule-prefix-cls}-time-detail {
+  border-bottom: 1px solid @week-schedule-border-color;
+}
+.@{week-schedule-prefix-cls}-time-detail.last {
+  border-bottom: 0!important;
+}
+.@{week-schedule-prefix-cls}-cell-td {
+  padding: 0px!important;
+  margin: 0px!important;
+  vertical-align: top;
+  position: relative;
+}
+@media print {
+  .@{week-schedule-prefix-cls}-bg-cell-column {
+    display: none;
+  }
+}
+.print-window-body .@{week-schedule-prefix-cls}-bg-cell-column {
+  display: none;
+}

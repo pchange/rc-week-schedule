@@ -1,0 +1,75 @@
+{
+  "name": "rc-week-schedule",
+  "version": "1.0.0",
+  "description": "React week schedule",
+  "keywords": [
+    "react",
+    "pchange",
+    "react-week-schedule",
+    "rc-week-schedule",
+    "week-schedule"
+  ],
+  "files": [
+    "lib",
+    "es",
+    "assets/*.css"
+  ],
+  "main": "lib/index",
+  "module": "es/index",
+  "homepage": "http://github.com/pchange/rc-week-schedule",
+  "maintainers": [
+    "shenqihui0920@gmail.com"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pchange/rc-week-schedule.git"
+  },
+  "bugs": {
+    "url": "http://github.com/pchange/rc-week-schedule/issues"
+  },
+  "license": "MIT",
+  "config": {
+    "port": 8000
+  },
+  "scripts": {
+    "build": "rc-tools run build",
+    "gh-pages": "rc-tools run gh-pages",
+    "start": "rc-tools run server",
+    "compile": "rc-tools run compile --babel-runtime",
+    "pub": "rc-tools run pub --babel-runtime",
+    "lint": "eslint --ext .js ./",
+    "precommit": "npm run lint",
+    "karma": "rc-test run karma",
+    "saucelabs": "rc-test run saucelabs",
+    "test": "rc-test run test",
+    "prepublish": "rc-tools run guard",
+    "chrome-test": "rc-test run chrome-test",
+    "coverage": "rc-test run coverage"
+  },
+  "devDependencies": {
+    "async": "~0.9.0",
+    "bootstrap": "~3.3.2",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0",
+    "expect.js": "~0.3.1",
+    "jquery": "~1.11.2",
+    "object-assign": "~4.0.1",
+    "pre-commit": "1.x",
+    "rc-test": "^6.0.1",
+    "rc-tools": "6.x",
+    "react": "15.x",
+    "react-dom": "15.x"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "prop-types": "^15.5.8"
+  }
+}
