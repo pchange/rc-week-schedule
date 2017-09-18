@@ -1,7 +1,7 @@
 import expect from 'expect.js';
 import React from 'react';
 import { findDOMNode, render, unmountComponentAtNode } from 'react-dom';
-import { Simulate } from 'react-dom/test-utils';
+// import { Simulate } from 'react-dom/test-utils';
 import $ from 'jquery';
 import moment from 'moment';
 import async from 'async';
@@ -65,7 +65,7 @@ describe('rc-week-schedule', () => {
   describe('check default props', () => {
     it('topLeftCell', (done) => {
       const simpleSheet = render(<SimpleSheet key="default_props_test_1" className="custom-rc-week-schedule" />, div);
-      const prefixCls = simpleSheet.props.prefixCls;
+      // const prefixCls = simpleSheet.props.prefixCls;
       verifyContent(simpleSheet, 'tr:nth-child(2) td:first-child', '时间', done);
     });
     it('time cell 1', (done) => {
@@ -81,7 +81,7 @@ describe('rc-week-schedule', () => {
     it('row cell length default 3', (done) => {
       // this must not exist
       const simpleSheet = render(<SimpleSheet key="default_props_test_4" className="custom-rc-week-schedule" />, div);
-      const prefixCls = simpleSheet.props.prefixCls;
+      // const prefixCls = simpleSheet.props.prefixCls;
       verifyExist(simpleSheet, 'tr:nth-child(2) td', 8, done);
     });
   });
@@ -142,20 +142,20 @@ describe('rc-week-schedule', () => {
           },
         },
       ],
-    }
+    };
     it('topLeftCell', (done) => {
       const simpleSheet = render(<SimpleSheet {...props} key="default_props_test_1" className="custom-rc-week-schedule" />, div);
-      const prefixCls = simpleSheet.props.prefixCls;
+      // const prefixCls = simpleSheet.props.prefixCls;
       verifyContent(simpleSheet, 'tr:nth-child(2) td:first-child', '时间', done);
     });
     it('topLeft2Cell', (done) => {
       const simpleSheet = render(<SimpleSheet {...props} key="default_props_test_1" className="custom-rc-week-schedule" />, div);
-      const prefixCls = simpleSheet.props.prefixCls;
+      // const prefixCls = simpleSheet.props.prefixCls;
       verifyContent(simpleSheet, 'tr:nth-child(2) td:nth-child(2)', 'Mon07-10', done);
     });
     it('topLeft8Cell', (done) => {
       const simpleSheet = render(<SimpleSheet {...props} key="default_props_test_1" className="custom-rc-week-schedule" />, div);
-      const prefixCls = simpleSheet.props.prefixCls;
+      // const prefixCls = simpleSheet.props.prefixCls;
       verifyContent(simpleSheet, 'tr:nth-child(2) td:nth-child(8)', 'Sun07-16', done);
     });
     it('time detail length', (done) => {
@@ -199,7 +199,7 @@ describe('rc-week-schedule', () => {
       async.series([timeout(20), (next) => {
         const componentDomNode = findDOMNode(simpleSheet);
         const $queryElem = $($(componentDomNode).find(query)[0]);
-        expect(parseInt($queryElem.css('height'))).to.be(137);
+        expect(parseInt($queryElem.css('height'), 10)).to.be(137);
         next();
       }, timeout(20), (next) => {
         next();
@@ -212,7 +212,7 @@ describe('rc-week-schedule', () => {
       async.series([timeout(20), (next) => {
         const componentDomNode = findDOMNode(simpleSheet);
         const $queryElem = $($(componentDomNode).find(query)[0]);
-        expect(parseInt($queryElem.css('height'))).to.be(542);
+        expect(parseInt($queryElem.css('height'), 10)).to.be(542);
         next();
       }, timeout(20), (next) => {
         next();

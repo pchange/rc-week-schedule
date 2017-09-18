@@ -4,9 +4,6 @@ import ReactDOM from 'react-dom';
 import WeekSchedule from 'rc-week-schedule';
 import 'rc-week-schedule/assets/index.less';
 
-import $ from 'jquery';
-window.$ = $;
-
 class Test extends Component {
   constructor(props) {
     super(props);
