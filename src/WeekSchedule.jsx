@@ -108,13 +108,27 @@ class WeekSchedule extends Component {
   }
 
   makeCellObj = ({ start, end, event }) => {
-    const length = parseInt((end - start) / 60, 10);
+    let length = parseInt((end - start) / 60, 10);
+    const empty = !event;
+
+    // 是小子集的事件
+    const isOverlapEvent = !!(0 === length && event);
+
+    let top = 0;
+    if (isOverlapEvent) {
+      length = parseInt((event.end_time - event.start_time) / 60, 10);
+      const curDayStartTimeUnix = moment.unix(event.start_time).startOf('hour').hour(this.state.minHour).unix();
+      // 占用了多少个格子 * 格子的高度
+      top = parseInt((event.start_time - curDayStartTimeUnix) / 3600 * this.state.rowHeight, 10);
+    }
     return {
       start,
       end,
       length,
       event,
-      empty: !event,
+      empty,
+      isOverlapEvent,
+      top,
     };
   }
 
@@ -288,7 +302,7 @@ class WeekSchedule extends Component {
                       const last = cellIndex === eventsCell.length - 1;
                       const colSpan = cell.length * state.minuteColSpan;
                       return (<td key={`weekIndex_${cellIndex}`} colSpan={colSpan}>
-                        <div className={`${prefixCls}-time-detail ${last ? 'last' : ''} ${cell.empty ? '${prefixCls}-time-detail-empty' : '${prefixCls}-time-detail-full'}`}>
+                        <div className={`${prefixCls}-time-detail ${last ? 'last' : ''} ${cell.empty ? `${prefixCls}-time-detail-empty` : `${prefixCls}-time-detail-full`}`}>
                           { this.renderCell(cell) }
                         </div>
                       </td>);
@@ -354,10 +368,16 @@ class WeekSchedule extends Component {
                       {
                         eventsCell.map((cell, cellIndex) => {
                           const last = cellIndex === eventsCell.length - 1;
-                          const height = cell.length * state.minuteHeight;
+                          const style = { height: cell.length * state.minuteHeight };
                           // eslint-disable-next-line
-                          const className = `${prefixCls}-time-detail ` + (last ? 'last ' : ' ') + (cell.empty ? `${prefixCls}-time-detail-empty ` : `${prefixCls}-time-detail-full `);
-                          return (<div key={`weekIndex_${cellIndex}`} style={{ height }} className={className}>
+                          let className = `${prefixCls}-time-detail `
+                            + (last ? 'last ' : ' ')
+                            + (cell.empty ? `${prefixCls}-time-detail-empty ` : `${prefixCls}-time-detail-full `);
+                          if (cell.isOverlapEvent) {
+                            className = `${className} ${prefixCls}-time-detail-overlap`;
+                            style.top = cell.top;
+                          }
+                          return (<div key={`weekIndex_${cellIndex}`} style={style} className={className}>
                             { this.renderCell(cell) }
                           </div>);
                         })
