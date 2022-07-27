@@ -8,10 +8,9 @@
 
 //** week-schedule text color
 @week-schedule-border-color: #ebebeb;
-@week-schedule-time-detail-full-bgcolor: #ffffff;
+@week-schedule-time-detail-full-bgcolor: #fff;
 @week-schedule-bg-cell-column-bgcolor: rgba(233, 233, 233, 0.5);
 @week-schedule-rotate-time-detail-height: 90px;
-
 
 .@{week-schedule-prefix-cls}-table {
   display: table;
@@ -42,6 +41,11 @@ table.@{week-schedule-prefix-cls}-table, .@{week-schedule-prefix-cls}-table td {
   overflow: visible;
 }
 .@{week-schedule-prefix-cls}-time-detail-full {
+  background-color: @week-schedule-time-detail-full-bgcolor;
+}
+.@{week-schedule-prefix-cls}-time-detail-overlap {
+  position: absolute;
+  width: 100%;
   background-color: @week-schedule-time-detail-full-bgcolor;
 }
 .@{week-schedule-prefix-cls}-time-detail-empty {}
